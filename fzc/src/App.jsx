@@ -28,6 +28,7 @@ const App = () => {
   const [activeTab, setActiveTab] = useState("web");
   const [selectedPlan, setSelectedPlan] = useState("pro");
 const [darkMode, setDarkMode] = useState(false);
+const [activeLink, setActiveLink] = useState("home");
 
   useEffect(() => {
   // ---- Intersection Observer ----
@@ -389,27 +390,27 @@ const renderStars = (rating) => {
         <Container>
           <Navbar.Brand href="#home" className="d-flex align-items-center">
             <span className="brand-line"></span>
-            <span className="brand-name">FZC Digital</span>
+            <span className="brand-name text-primary">FZC Digital</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
 <Nav className="ms-auto text-white">
-  <Nav.Link className="text-white" href="#home">Home</Nav.Link>
-  <Nav.Link className="text-white" href="#services">Services</Nav.Link>
-   <Nav.Link className="text-white" href="#pricing">Pricing</Nav.Link>
-  <Nav.Link className="text-white" href="#process">Process</Nav.Link>
+  <Nav.Link     active={activeLink === "home"}
+ className="text-white" onClick={() => setActiveLink("home")} href="#home">Home</Nav.Link>
+  <Nav.Link   className={activeLink === "services" ? "text-white active" : "text-white"} onClick={() => setActiveLink("services")} href="#services">Services</Nav.Link>
+  <Nav.Link   className={activeLink === "pricing" ? "text-white active" : "text-white"} onClick={() => setActiveLink("pricing")} href="#pricing">Pricing</Nav.Link>
+  <Nav.Link   className={activeLink === "process" ? "text-white active" : "text-white"} onClick={() => setActiveLink("process")} href="#process">Process</Nav.Link>
   {/* <Nav.Link className="text-white" href="#clients">Clients</Nav.Link> */}
 
-  <Button 
-    variant="outline-primary" 
-    className="me-3 theme-toggle"
-    onClick={() => setDarkMode(!darkMode)}
-  >
-    {darkMode ? <FaSun /> : <FaMoon />}
-  </Button>
-  <Nav.Link href="#contact" className="nav-contact-btn">
-    Get Quote
-  </Nav.Link>
+ 
+  <Nav.Link
+  href="#contact"
+  className={`text-white nav-contact-btn ${activeLink === "contact" ? "activeconc" : ""}`}
+  onClick={() => setActiveLink("contact")}
+>
+  Get Quote
+</Nav.Link>
+
 </Nav>
           </Navbar.Collapse>
         </Container>
@@ -468,10 +469,13 @@ const renderStars = (rating) => {
 
       </section>
 
+ 
+      
+
       {/* Services Section */}
-      <section id="services" className="section-py ">
+      <section id="services" className="section-py  ">
        <Container>
-  <div className="text-center mb-5">
+  <div className="text-center mb-5 pt-4">
     <h2 className="section-title">Our Digital Services</h2>
     <p className="section-subtitle">Comprehensive solutions for your digital transformation</p>
   </div>
@@ -515,10 +519,10 @@ const renderStars = (rating) => {
 </Container>
 </section>
 
-
+  
 
 {/*why fzc */}
-<section className="why-fzc-section py-5">
+<section className="why-fzc-section py-5 m-4">
   <Container>
     <Row className="align-items-center">
 
@@ -580,12 +584,13 @@ const renderStars = (rating) => {
     </Row>
   </Container>
 </section>
-
+ 
+    
 
  {/* Our Process Section */}
-      <section id="process" className="section-py">
+      <section id="process" className="section-py m-4">
         <Container>
-          <div className="text-center mb-5">
+          <div className="text-center mb-5 pt-4">
             <h2 className="section-title">Our Development Process</h2>
             <p className="section-subtitle">A structured approach to ensure project success</p>
           </div>
@@ -603,250 +608,13 @@ const renderStars = (rating) => {
         </Container>
       </section>
 
-
-      {/* Project Demos Section */}
-      {/* <section id="demos" className="section-py ">
-        <Container>
-          <div className="text-center mb-5">
-            <h2 className="section-title">Project Demos</h2>
-            <p className="section-subtitle">Explore our work across different platforms</p>
-          </div>
-
-          <Tabs
-            activeKey={activeTab}
-            onSelect={(k) => setActiveTab(k)}
-            className="demo-tabs mb-5 justify-content-center"
-          >
-            <Tab eventKey="web" title="Web Applications">
-              <Row className="mt-4">
-                {projectDemos.web.map((demo) => (
-                  <Col md={6} className="mb-4" key={demo.id}>
-                    <Card className="demo-card h-100">
   
-                       <Card.Img height="200px"  style={{borderRadius:"20px"}}
-                        variant="top"
-                        src={demo.image}
-                        alt={demo.title}
-                        className="demo-card-img"
-                      />
-
-                      <Card.Body className="d-flex flex-column">
-                        <Card.Title>{demo.title}</Card.Title>
-                        <Card.Text className="flex-grow-1">
-                          {demo.description}
-                        </Card.Text>
-
-                        <div className="demo-features mb-3">
-                          {demo.features.map((feature, idx) => (
-                            <span key={idx} className="demo-feature-badge">
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
-                         <div className="demo-actions">
-                          <Button 
-                            variant="outline-primary" 
-                            className="me-2"
-                            onClick={() => handleDemoClick(demo)}
-                          >
-                            Watch Demo
-                          </Button>
-                          </div>
-                      </Card.Body>
-                    </Card>
-
-                  </Col>
-                ))}
-              </Row>
-            </Tab>
-            <Tab eventKey="mobile" title="Mobile Apps">
-              <Row className="mt-4">
-                {projectDemos.mobile.map((demo) => (
-                  <Col md={6} className="mb-4" key={demo.id}>
-                    <Card className="demo-card h-100">
-                      <div className="demo-card-header">
-                        <div className="demo-badge">{demo.tech}</div>
-                        <Button 
-                          variant="link" 
-                          className="play-btn"
-                          onClick={() => handleDemoClick(demo)}
-                        >
-                          <FaPlay />
-                        </Button>
-                      </div>
-                      <Card.Body>
-                        <Card.Title>{demo.title}</Card.Title>
-                        <Card.Text>{demo.description}</Card.Text>
-                        <div className="demo-features mb-3">
-                          {demo.features.map((feature, idx) => (
-                            <span key={idx} className="demo-feature-badge">{feature}</span>
-                          ))}
-                        </div>
-                        <div className="demo-actions">
-                          <Button 
-                            variant="outline-primary" 
-                            className="me-2"
-                            onClick={() => handleDemoClick(demo)}
-                          >
-                            Watch Demo
-                          </Button>
-                          <Button 
-                            variant="primary" 
-                            href={demo.liveUrl} 
-                            target="_blank"
-                          >
-                            App Preview
-                          </Button>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </Tab>
-            <Tab eventKey="fullstack" title="Full-Stack e-comerce Solutions">
-              <Row className="mt-4">
-                {projectDemos.fullstack.map((demo) => (
-                  <Col md={6} className="mb-4" key={demo.id}>
-                    <Card className="demo-card h-100">
-                      <div className="demo-card-header">
-                        <div className="demo-badge">{demo.tech}</div>
-                        <Button 
-                          variant="link" 
-                          className="play-btn"
-                          onClick={() => handleDemoClick(demo)}
-                        >
-                          <FaPlay />
-                        </Button>
-                      </div>
-                      <Card.Body>
-                        <Card.Title>{demo.title}</Card.Title>
-                        <Card.Text>{demo.description}</Card.Text>
-                        <div className="demo-features mb-3">
-                          {demo.features.map((feature, idx) => (
-                            <span key={idx} className="demo-feature-badge">{feature}</span>
-                          ))}
-                        </div>
-                        <div className="demo-actions">
-                          <Button 
-                            variant="outline-primary" 
-                            className="me-2"
-                            onClick={() => handleDemoClick(demo)}
-                          >
-                            Watch Demo
-                          </Button>
-                          <Button 
-                            variant="primary" 
-                            href={demo.liveUrl} 
-                            target="_blank"
-                          >
-                            View Project
-                          </Button>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </Tab>
-             <Tab eventKey="dash" title="dashboards">
-              <Row className="mt-4">
-                {projectDemos.fullstack.map((demo) => (
-                  <Col md={6} className="mb-4" key={demo.id}>
-                    <Card className="demo-card h-100">
-                      <div className="demo-card-header">
-                        <div className="demo-badge">{demo.tech}</div>
-                        <Button 
-                          variant="link" 
-                          className="play-btn"
-                          onClick={() => handleDemoClick(demo)}
-                        >
-                          <FaPlay />
-                        </Button>
-                      </div>
-                      <Card.Body>
-                        <Card.Title>{demo.title}</Card.Title>
-                        <Card.Text>{demo.description}</Card.Text>
-                        <div className="demo-features mb-3">
-                          {demo.features.map((feature, idx) => (
-                            <span key={idx} className="demo-feature-badge">{feature}</span>
-                          ))}
-                        </div>
-                        <div className="demo-actions">
-                          <Button 
-                            variant="outline-primary" 
-                            className="me-2"
-                            onClick={() => handleDemoClick(demo)}
-                          >
-                            Watch Demo
-                          </Button>
-                          <Button 
-                            variant="primary" 
-                            href={demo.liveUrl} 
-                            target="_blank"
-                          >
-                            View Project
-                          </Button>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </Tab>
-             <Tab eventKey="design" title="design & branding">
-              <Row className="mt-4">
-                {projectDemos.fullstack.map((demo) => (
-                  <Col md={6} className="mb-4" key={demo.id}>
-                    <Card className="demo-card h-100">
-                      <div className="demo-card-header">
-                        <div className="demo-badge">{demo.tech}</div>
-                        <Button 
-                          variant="link" 
-                          className="play-btn"
-                          onClick={() => handleDemoClick(demo)}
-                        >
-                          <FaPlay />
-                        </Button>
-                      </div>
-                      <Card.Body>
-                        <Card.Title>{demo.title}</Card.Title>
-                        <Card.Text>{demo.description}</Card.Text>
-                        <div className="demo-features mb-3">
-                          {demo.features.map((feature, idx) => (
-                            <span key={idx} className="demo-feature-badge">{feature}</span>
-                          ))}
-                        </div>
-                        <div className="demo-actions">
-                          <Button 
-                            variant="outline-primary" 
-                            className="me-2"
-                            onClick={() => handleDemoClick(demo)}
-                          >
-                            Watch Demo
-                          </Button>
-                          <Button 
-                            variant="primary" 
-                            href={demo.liveUrl} 
-                            target="_blank"
-                          >
-                            View Project
-                          </Button>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </Tab>
-          </Tabs>
-        </Container>
-      </section> */}
+      
 
   {/* Pricing Section - NEW */}
-      <section id="pricing" className="section-py">
+      <section id="pricing" className="section-py m-4">
         <Container>
-          <div className="text-center mb-5">
+          <div className="text-center mb-5 pt-4">
             <h2 className="section-title">Transparent Pricing</h2>
             <p className="section-subtitle">Choose the perfect plan for your business needs</p>
           </div>
@@ -875,11 +643,11 @@ const renderStars = (rating) => {
                       <p className="text-muted">/{plan.period}</p>
                     </div>
 
-                    <Card.Text className="mb-4">{plan.description}</Card.Text>
+                    <Card.Text className="mb-4"  >{plan.description}</Card.Text>
                     
                     <ul className="pricing-features mb-4">
                       {plan.features.map((feature, idx) => (
-                        <li key={idx}>
+                        <li key={idx} className="pricing-li">
                           <FaCheckCircle className="text-success me-2" />
                           {feature}
                         </li>
@@ -888,7 +656,7 @@ const renderStars = (rating) => {
                     
                     <Button 
                       variant={plan.popular ? "warning" : "primary"} 
-                      className={`w-100 btn-${plan.color}`}
+                      className="w-100 btn"
                       onClick={() => plan.name === "Enterprise" ? window.location.href = "#contact" : setSelectedPlan(plan.name)}
                     >
                       {plan.cta}
@@ -904,42 +672,41 @@ const renderStars = (rating) => {
       </section>
 
 
+  
+
+
       {/* Clients Section */}
-      <section id="clients" className="section-py">
+      <section id="clients" className="section-py m-4">
         <Container>
-          <div className="text-center mb-5">
+          <div className="text-center mb-5 pt-4">
             <h2 className="section-title">Our Clients</h2>
             <p className="section-subtitle">Trusted by businesses of all sizes</p>
           </div>
           <Row className="justify-content-center">
             {clients.map((client, index) => (
-              <Col md={4} className="text-center mb-4" key={index}>
-                <Card className="client-card">
-                  <Card.Body>
-                    {/* <div className="client-logo mb-3">
-                      <img src={client.logo} alt={client.name} />
-                    </div> */}
-                    <Card.Text className="">
-                      "{client.testimonial}"
-                    </Card.Text>
-                    
+              <Col md={4} className="text-center mb-4 d-flex">
+                <Card className="client-card flex-fill">
+                  <Card.Body className="d-flex flex-column justify-content-between">
+                    <Card.Text>"{client.testimonial}"</Card.Text>
                     <div className="mt-2">
                       {renderStars(client.rating)}
                     </div>
-                    {/* <Card.Title>{client.name}</Card.Title> */}
                   </Card.Body>
                 </Card>
               </Col>
+
             ))}
           </Row>
         </Container>
       </section>
 
+      
+
       {/* Contact Section */}
-      <section id="contact" className="section-py">
+      <section id="contact" className="section-py m-4">
         <Container>
           <Row>
-            <Col lg={6} className="mb-4 mb-lg-0">
+            <Col lg={6} className="mb-4 mb-lg-0 pt-4">
               <h2 className="section-title mb-4">Ready to Start Your Project?</h2>
               <p className="mb-4 text-white">
                 Contact us for a free consultation and project estimate. Let's discuss how we can help your business grow.
@@ -963,7 +730,7 @@ const renderStars = (rating) => {
                 </div>
               </div>
             </Col>
-            <Col lg={6}>
+            <Col lg={6} className="pt-4">
               <Card className="contact-form-card">
                 <Card.Body>
                   <h5 className="mb-4">Request a Quote</h5>
@@ -1009,84 +776,151 @@ const renderStars = (rating) => {
         </Container>
       </section>
 
-      {/* Demo Modal */}
-      <Modal 
-        show={showDemoModal} 
-        onHide={() => setShowDemoModal(false)}
-        size="lg"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>{selectedDemo?.title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {selectedDemo && (
-            <>
-              <div className="ratio ratio-16x9 mb-3">
-                <video controls>
-                  <source src={selectedDemo.videoUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div className="demo-modal-info">
-                <h6>Technology Stack:</h6>
-                <p>{selectedDemo.tech}</p>
-                <h6>Features:</h6>
-                <ul>
-                  {selectedDemo.features.map((feature, idx) => (
-                    <li key={idx}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-            </>
-          )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button 
-            variant="secondary" 
-            onClick={() => setShowDemoModal(false)}
-          >
-            Close
-          </Button>
-          <Button 
-            variant="primary" 
-            href={selectedDemo?.liveUrl} 
-            target="_blank"
-          >
-            View Live Project
-          </Button>
-        </Modal.Footer>
-      </Modal>
+     
 
       {/* Footer */}
-      <footer className="footer py-4 bg-dark text-white">
-        <Container>
-          <Row>
-            <Col md={4} className="mb-3 mb-md-0">
-              <h5>FZC Digital</h5>
-              <p className="mb-0">Transforming businesses through innovative digital solutions.</p>
-            </Col>
-            <Col md={4} className="mb-3 mb-md-0 text-center">
-              <h6>Services</h6>
-              <ul className="list-unstyled">
-                <li>Web Development</li>
-                <li>Mobile Apps</li>
-                <li>Custom Software</li>
-                <li>Digital Consulting</li>
-              </ul>
-            </Col>
-            <Col md={4} className="text-md-end">
-              <h6>Contact</h6>
-              <p>contact@fzcdigital.com<br />+212 776-653-648</p>
-            </Col>
-          </Row>
-          <Row className="mt-3">
-            <Col className="text-center">
-              <p className="mb-0">© {new Date().getFullYear()} FZC Digital. All rights reserved.</p>
-            </Col>
-          </Row>
-        </Container>
-      </footer>
+     <footer className="footer bg-dark text-white">
+  {/* Top section avec gradient */}
+  <div className="footer-top py-5">
+    <Container>
+      <Row className="align-items-start">
+        {/* Colonne 1: Logo et description */}
+        <Col lg={4} md={6} className="mb-4 mb-lg-0">
+          <div className="footer-brand">
+            <h3 className="footer-title mb-3">FZC Digital</h3>
+            <p className="footer-text mb-4">
+              Transforming businesses through innovative digital solutions. 
+              We build the future of your digital presence.
+            </p>
+            <div className="social-links">
+              <a href="#" className="social-link" aria-label="LinkedIn">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" className="social-link" aria-label="Twitter">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#" className="social-link" aria-label="Facebook">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" className="social-link" aria-label="Instagram">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="#" className="social-link" aria-label="GitHub">
+                <i className="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </Col>
+
+        {/* Colonne 2: Liens rapides */}
+        <Col lg={2} md={6} className="mb-4 mb-md-0">
+          <h5 className="footer-heading mb-4">Quick Links</h5>
+          <ul className="footer-links list-unstyled">
+            <li className="mb-2">
+              <a href="#" className="footer-link">Home</a>
+            </li>
+            <li className="mb-2">
+              <a href="#services" className="footer-link">Services</a>
+            </li>
+            <li className="mb-2">
+              <a href="#pricing" className="footer-link">Pricing</a>
+            </li>
+            <li className="mb-2">
+              <a href="#process" className="footer-link">Process</a>
+            </li>
+            <li className="mb-2">
+              <a href="#contact" className="footer-link">Contact</a>
+            </li>
+          </ul>
+        </Col>
+
+        {/* Colonne 3: Services */}
+        <Col lg={2} md={6} className="mb-4 mb-md-0">
+          <h5 className="footer-heading mb-4">Services</h5>
+          <ul className="footer-links list-unstyled">
+            <li className="mb-2">
+              <a href="#services" className="footer-link">Web Development</a>
+            </li>
+            <li className="mb-2">
+              <a href="#services" className="footer-link">Mobile Apps</a>
+            </li>
+            <li className="mb-2">
+              <a href="#services" className="footer-link">Custom Software</a>
+            </li>
+            <li className="mb-2">
+              <a href="#services" className="footer-link">Digital Consulting</a>
+            </li>
+            <li className="mb-2">
+              <a href="#services" className="footer-link">UI/UX Design</a>
+            </li>
+            <li className="mb-2">
+              <a href="#services" className="footer-link">Digital Marketing</a>
+            </li>
+          </ul>
+        </Col>
+
+        {/* Colonne 4: Contact */}
+        <Col lg={4} md={6}>
+          <h5 className="footer-heading mb-4">Get In Touch</h5>
+          <div className="contact-info">
+            <div className="contact-item mb-3">
+              <div className="contact-icon">
+                <i className="fas fa-envelope"></i>
+              </div>
+              <div className="contact-text">
+                <a href="mailto:contact@fzcdigital.com" className="footer-link">
+                  contact@fzcdigital.com
+                </a>
+              </div>
+            </div>
+            
+            <div className="contact-item mb-3">
+              <div className="contact-icon">
+                <i className="fas fa-phone"></i>
+              </div>
+              <div className="contact-text">
+                <a href="tel:+212776653648" className="footer-link">
+                  +212 776-653-648
+                </a>
+              </div>
+            </div>
+            
+            <div className="contact-item mb-4">
+              <div className="contact-icon">
+                <i className="fas fa-map-marker-alt"></i>
+              </div>
+              <div className="contact-text">
+                <p className="mb-0">Nador, Morocco</p>
+              </div>
+            </div>
+            
+            
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  </div>
+
+  {/* Bottom section avec copyright */}
+  <div className="footer-bottom py-3 border-top border-secondary">
+    <Container>
+      <Row className="align-items-center">
+        <Col md={6} className="text-center text-md-start mb-2 mb-md-0">
+          <p className="copyright-text mb-0">
+            © {new Date().getFullYear()} FZC Digital. All rights reserved.
+          </p>
+        </Col>
+        <Col md={6} className="text-center text-md-end">
+          <div className="footer-bottom-links">
+            <a href="#" className="footer-bottom-link me-3">Privacy Policy</a>
+            <a href="#" className="footer-bottom-link me-3">Terms of Service</a>
+            <a href="#" className="footer-bottom-link">Cookie Policy</a>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  </div>
+</footer>
     </div>
   );
 };

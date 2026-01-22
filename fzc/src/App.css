@@ -215,6 +215,9 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border-bottom: 3px solid var(--primary-color);
   background: transparent;
 }
+.activeconc{
+  color:white !important;
+}
 
 /*pricing*/
 .old-price span {
@@ -235,7 +238,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
- 
+
 .process-step {
   text-align: center;
   color:white;
@@ -258,6 +261,23 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0 auto 20px;
+  
+  /* Animation infinie d'agrandissement/rétrécissement */
+  animation: pulseScale 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Keyframes pour l'animation pulse */
+@keyframes pulseScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .step-title {
@@ -270,6 +290,9 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
   font-size: 0.9rem;
 }
+
+
+
 
 /* Client Cards */
 .client-card {
@@ -562,6 +585,9 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border-color: var(--warning);
   transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2);
+}
+.pricing-li{
+  font-size: 12px;
 }
 
 .pricing-card:hover {
@@ -1140,3 +1166,623 @@ body.dark-theme .card-hover-glow:hover::before {
   transform: translateY(0);
 }
 
+
+
+
+
+/* Hover effect for all nav links */
+.navbar .nav-link:hover {
+  color: #0d6efd !important; /* Bootstrap primary color */
+}
+
+/* Active link color */
+.navbar .nav-link.active {
+  color: var(--primary-color) !important; /* Custom active color */
+  font-weight: 600;
+}
+
+/* Optional: underline for active link */
+.navbar .nav-link.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #6610f2;
+  margin-top: 4px;
+}
+
+
+
+
+
+.footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f1525 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--primary-color) 0%, 
+    rgb(22,22,22) 100%);
+}
+
+.footer-top {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.footer-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fff, var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.footer-heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.social-link:hover {
+  background: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Links */
+.footer-links li {
+  position: relative;
+  padding-left: 0;
+  transition: padding-left 0.3s ease;
+}
+
+.footer-links li:hover {
+  padding-left: 10px;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link:hover {
+  color: white;
+  padding-left: 5px;
+}
+
+.footer-link::before {
+  content: '›';
+  position: absolute;
+  left: -15px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--primary-color);
+}
+
+.footer-link:hover::before {
+  opacity: 1;
+  left: -10px;
+}
+
+/* Contact Info */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.contact-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.contact-text {
+  flex: 1;
+}
+
+ 
+
+/* Footer Bottom */
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.copyright-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.footer-bottom-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-link:hover {
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-heading {
+    margin-top: 20px;
+  }
+  
+  .newsletter-input {
+    font-size: 0.9rem;
+  }
+  
+  .footer-bottom-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .footer-bottom-link {
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+.nav-contact-btn {
+  background-color: var(--primary-color);
+  color: white !important;
+  border-radius: 25px;
+  padding: 8px 20px !important;
+  margin-left: 10px;
+}
+
+
+.navbar .nav-link.activeconc {
+  color: white !important;
+ }
+
+
+ /* Add these media queries to the end of your existing App.css file */
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Large devices (desktops, 992px to 1199px) */
+@media (max-width: 1199px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .service-img-wrapper {
+    width: 200px;
+  }
+}
+
+/* Medium devices (tablets, 768px to 991px) */
+@media (max-width: 991px) {
+  /* Navigation */
+  .navbar-collapse {
+    background: rgb(15, 15, 29);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  .nav-contact-btn {
+    margin-left: 0;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  /* Hero Section */
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-stats {
+    gap: 20px;
+  }
+  
+  /* Services */
+  .service-cards {
+    max-height: none;
+    flex-direction: column;
+  }
+  
+  .service-img-wrapper {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .service-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Why FZC Section */
+  .why-fzc-section .row {
+    flex-direction: column;
+  }
+  
+  /* Process Steps */
+  .process-steps .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  /* Pricing Cards */
+  .pricing-card.popular {
+    transform: scale(1);
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767px) */
+@media (max-width: 767px) {
+  /* General */
+  .section-py {
+    padding: 30px 0;
+  }
+  
+  .m-4 {
+    margin: 1rem !important;
+  }
+  
+  /* Hero Section */
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hero-stats div {
+    flex: 0 0 33%;
+    margin-bottom: 15px;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .hero-buttons .btn {
+    margin: 0 !important;
+  }
+  
+  /* Services */
+  .service-cards {
+    margin-bottom: 20px;
+  }
+  
+  /* Why FZC Section */
+  .service-card {
+    margin-bottom: 15px;
+  }
+  
+  /* Process Steps */
+  .process-steps .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .process-step {
+    margin-bottom: 20px;
+  }
+  
+  /* Pricing */
+  .pricing-card {
+    margin-bottom: 20px;
+  }
+  
+  /* Contact Section */
+  .contact-form-card {
+    margin-top: 20px;
+  }
+  
+  /* Footer */
+  .footer .col-lg-4,
+  .footer .col-lg-2,
+  .footer .col-md-6 {
+    margin-bottom: 30px;
+  }
+  
+  .footer-bottom .row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-bottom-links {
+    margin-top: 10px;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+  /* General */
+  body {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  /* Hero Section */
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-stats h3 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-stats div {
+    flex: 0 0 50%;
+  }
+  
+  /* Section Titles */
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* Service Cards */
+  .service-content {
+    padding: 15px !important;
+  }
+  
+  .service-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .service-features {
+    font-size: 0.9rem;
+  }
+  
+  /* Pricing */
+  .pricing-price h2 {
+    font-size: 2rem;
+  }
+  
+  .pricing-features li {
+    font-size: 0.9rem;
+  }
+  
+  /* Contact Form */
+  .contact-form-card {
+    padding: 15px;
+  }
+  
+  /* Footer */
+  .footer-top {
+    padding: 30px 0;
+  }
+  
+  .footer-title {
+    font-size: 1.5rem;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  /* Modal */
+  .modal-dialog {
+    margin: 10px;
+  }
+}
+
+/* Specific adjustments for very small screens */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .brand-name {
+    font-size: 1.2rem;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .hero-stats h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Fix for images on mobile */
+@media (max-width: 768px) {
+  .floating-img {
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .hero-section img {
+    max-width: 300px;
+    margin-top: 30px;
+  }
+}
+
+/* Fix for service cards text overflow */
+.service-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Ensure all images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for text in small containers */
+.service-desc,
+.step-description,
+.client-testimonial {
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Improve form elements on mobile */
+@media (max-width: 767px) {
+  .form-control,
+  .form-select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* Fix for pricing cards on mobile */
+@media (max-width: 991px) {
+  .pricing-card {
+    margin-bottom: 30px;
+  }
+}
+
+/* Improve spacing on mobile */
+@media (max-width: 767px) {
+  .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  
+  .col, .col-md-6, .col-lg-4 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* Fix for floating animation on mobile */
+@media (max-width: 768px) {
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Ensure cards have consistent height on mobile */
+@media (max-width: 767px) {
+  .service-cards,
+  .pricing-card,
+  .client-card {
+    height: auto !important;
+    min-height: auto;
+  }
+}
+
+/* Fix for navigation active state on mobile */
+@media (max-width: 991px) {
+  .navbar-nav .nav-link {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .navbar-nav .nav-link:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-contact-btn {
+    border: 2px solid var(--primary-color);
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+/* Improve readability on small screens */
+@media (max-width: 767px) {
+  body {
+    line-height: 1.5;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+  }
+}
+
+/* Fix for overflow issues */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .row {
+    overflow-x: hidden;
+  }
+}
