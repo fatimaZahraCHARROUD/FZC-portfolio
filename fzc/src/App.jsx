@@ -386,7 +386,7 @@ const renderStars = (rating) => {
   return (
 <div  >
       {/* Navigation - Updated to include Pricing */}
-      <Navbar expand="lg" fixed="top" className={isScrolled ? "navbar-scrolled" : "navbar-transparent"}>
+<Navbar  expand="lg"  fixed="top"  className={`custom-navbar ${isScrolled ? "navbar-scrolled" : "navbar-transparent"}`}>
         <Container>
           <Navbar.Brand href="#home" className="d-flex align-items-center">
             <span className="brand-line"></span>
@@ -417,57 +417,71 @@ const renderStars = (rating) => {
       </Navbar>
 
       {/* Hero Section with Background Image */}
-      <section id="home" className="hero-section">
-        <div className="hero-background">
-          <div className="hero-overlay"></div>
-          
+    <section id="home" className="hero-section">
+  <div className="hero-background">
+    <div className="hero-overlay"></div>
+  </div>
+
+  <Container>
+    <div className="hero-wrapper">
+
+      {/* IMAGE */}
+      <img
+        src={heroTechImage}
+        alt=""
+        id="heroimg"
+        className="hero-img"
+        width={400}
+        height={400}
+      />
+
+      {/* CONTENT */}
+      <div className="hero-content">
+        <h6 className="text-uppercase text-primary mb-3">
+          <Badge bg="primary" className="me-2">NEW</Badge>
+          Digital Solutions Company
+        </h6>
+
+        <h1 className="hero-title mb-4">
+          Transform Your Business With{" "}
+          <span className="text-primary">Digital Excellence</span>
+        </h1>
+
+        <p className="hero-desc lead mb-4">
+          FZC Digital delivers cutting-edge web and mobile applications that drive growth.
+          We combine innovative technology with strategic insights to create exceptional digital experiences.
+        </p>
+
+        <div className="hero-stats">
+          <div className="stat-item">
+            <h3 className="text-primary">72h</h3>
+            <p>Fast Delivery</p>
+          </div>
+          <div className="stat-item">
+            <h3 className="text-primary">100%</h3>
+            <p>Client Satisfaction</p>
+          </div>
+          <div className="stat-item">
+            <h3 className="text-primary">24/7</h3>
+            <p>Support Available</p>
+          </div>
         </div>
-        <Container>
-          <Row className="align-items-center min-vh-100">
-            <Col lg={7} className="hero-content">
-              <h6 className="text-uppercase text-primary mb-3">
-                <Badge bg="primary" className="me-2">NEW</Badge> Digital Solutions Company
-              </h6>
-              <h1 className="hero-title mb-4">
-                Transform Your Business With <span className="text-primary">Digital Excellence</span>
-              </h1>
-              <p className="lead mb-4">
-                FZC Digital delivers cutting-edge web and mobile applications that drive growth. 
-                We combine innovative technology with strategic insights to create exceptional digital experiences.
-              </p>
-              <div className="hero-stats d-flex gap-4 mb-4">
-                <div>
-                  <h3 className="text-primary">72h</h3>
-                  <p>Fast Delivery</p>
-                </div>
 
-                <div>
-                  <h3 className="text-primary">100%</h3>
-                  <p>Client Satisfaction</p>
-                </div>
-                <div>
-                  <h3 className="text-primary">24/7</h3>
-                  <p>Support Available</p>
-                 </div>
-              </div>
-              <div className="hero-buttons">
-                <Button href="#pricing" className="btn-primary me-3">
-                  View Pricing <FaArrowRight className="ms-2" />
-                </Button>
-                <Button href="#services" variant="outline-light">
-                  Service Monitoring
-                </Button>
-              </div>
-            </Col>
-            <Col >
-            <img src={heroTechImage} alt="" 
-          width={400} height={400}     className="floating-img"
-          />
-            </Col>
-          </Row>
-        </Container>
+        <div className="hero-buttons">
+          <Button href="#pricing" className="btn-primary">
+            View Pricing <FaArrowRight className="ms-2" />
+          </Button>
+          <Button href="#services" variant="outline-light">
+            Service Monitoring
+          </Button>
+        </div>
+      </div>
 
-      </section>
+      {/* CLEAR FLOAT */}
+      <div className="clearfix"></div>
+    </div>
+  </Container>
+</section>
 
  
       
