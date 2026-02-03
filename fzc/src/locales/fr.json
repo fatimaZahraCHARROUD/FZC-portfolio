@@ -1,0 +1,266 @@
+{
+  "company": {
+    "name": "FZC Digital"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "pricing": "Tarifs",
+    "process": "Processus",
+    "quote": "Obtenir un Devis"
+  },
+  "hero": {
+    "new": "NOUVEAU",
+    "tagline": "Société de Solutions Numériques",
+    "title": "Transformez Votre Entreprise avec ",
+    "titleHighlight": "l'Excellence Numérique",
+    "description": "FZC Digital propose des applications web et mobiles de pointe qui stimulent la croissance. Nous combinons technologie innovante et insights stratégiques pour créer des expériences digitales exceptionnelles.",
+    "stats": {
+      "delivery": "Livraison Rapide",
+      "satisfaction": "Satisfaction Client",
+      "support": "Support Disponible"
+    },
+    "buttons": {
+      "pricing": "Voir les Tarifs",
+      "services": "Suivi des Services"
+    }
+  },
+  "services": {
+    "title": "Nos Services Numériques",
+    "subtitle": "Solutions complètes pour votre transformation digitale",
+    "bookNow": "Réserver Maintenant",
+    "items": {
+      "0": {
+        "title": "Site Web pour Votre Entreprise",
+        "description": "Un beau site web qui présente votre entreprise en ligne et vous aide à acquérir plus de clients.",
+        "features": [
+          "Design professionnel et moderne",
+          "Fonctionne sur ordinateurs et téléphones",
+          "Facile à mettre à jour avec vos informations",
+          "Aidez les clients à vous trouver en ligne"
+        ]
+      },
+      "1": {
+        "title": "Application Mobile pour Vos Clients",
+        "description": "Une application pour votre entreprise qui permet aux clients de commander, réserver facilement.",
+        "features": [
+          "Disponible sur iPhone et Android",
+          "Commander ou réserver depuis l'application",
+          "Envoyer des mises à jour ou promotions aux clients"
+        ]
+      },
+      "2": {
+        "title": "Boutique en ligne / E-commerce",
+        "description": "Vendez vos produits en ligne avec une boutique en ligne simple et sécurisée.",
+        "features": [
+          "Gestion facile des produits",
+          "Paiements sécurisés en ligne",
+          "Suivi des commandes et livraisons",
+          "Augmentez les ventes et touchez plus de clients"
+        ]
+      },
+      "3": {
+        "title": "Tableau de Bord et Rapports d'Entreprise",
+        "description": "Voyez comment votre entreprise performe en un coup d'œil avec des graphiques clairs, interactifs et des rapports détaillés.",
+        "features": [
+          "Suivi des ventes et performances",
+          "Voir l'activité des clients",
+          "Graphiques faciles à comprendre",
+          "Prenez de meilleures décisions rapidement"
+        ]
+      },
+      "4": {
+        "title": "Design et Branding",
+        "description": "Créez des affiches, flyers, stickers et autres supports attractifs pour promouvoir votre entreprise.",
+        "features": [
+          "Affiches et flyers pour promotions ou événements",
+          "Stickers et étiquettes personnalisés",
+          "Design de logo et identité visuelle",
+          "Visuels professionnels pour les clients"
+        ]
+      },
+      "5": {
+        "title": "Marketing et Interaction Client",
+        "description": "Aidez votre entreprise à atteindre plus de clients en ligne et à rester connectée avec eux.",
+        "features": [
+          "Promotion sur les réseaux sociaux",
+          "Mises à jour par email ou SMS aux clients",
+          "Programmes de fidélité et offres spéciales",
+          "Suivi des performances marketing"
+        ]
+      }
+    }
+  },
+  "whyUs": {
+    "title": "Pourquoi ",
+    "titleHighlight": "FZC Digital",
+    "imageAlt": "Pourquoi FZC Digital",
+    "reasons": {
+      "0": {
+        "title": "Nous Comprenons Votre Entreprise",
+        "description": "Nous travaillons avec les petites entreprises et les professionnels, donc nous savons ce dont vous avez vraiment besoin — des solutions numériques simples et efficaces."
+      },
+      "1": {
+        "title": "Communication Claire",
+        "description": "Pas de langage technique. Nous expliquons tout clairement et vous tenons informé à chaque étape."
+      },
+      "2": {
+        "title": "Tarification Abordable et Honnête",
+        "description": "Des prix transparents sans surprises. Vous obtenez exactement ce dont votre entreprise a besoin — ni plus, ni moins."
+      },
+      "3": {
+        "title": "Support Après Livraison",
+        "description": "Nous ne disparaissons pas après le lancement. Nous restons avec vous pour aider, mettre à jour et supporter votre projet."
+      }
+    }
+  },
+  "process": {
+    "title": "Notre Processus de Développement",
+    "subtitle": "Une approche structurée pour assurer le succès du projet",
+    "steps": {
+      "0": {
+        "title": "Écoute",
+        "description": "Nous discutons avec vous pour comprendre votre entreprise et vos véritables besoins."
+      },
+      "1": {
+        "title": "Planification",
+        "description": "Nous suggérons la meilleure solution et convenons des fonctionnalités, prix et délais."
+      },
+      "2": {
+        "title": "Design",
+        "description": "Nous créons un design clair et attractif et obtenons votre approbation d'abord."
+      },
+      "3": {
+        "title": "Développement",
+        "description": "Nous développons votre projet étape par étape et vous tenons informé."
+      },
+      "4": {
+        "title": "Test",
+        "description": "Nous testons tout pour nous assurer que tout fonctionne parfaitement."
+      },
+      "5": {
+        "title": "Lancement et Support",
+        "description": "Nous lançons votre projet et restons disponibles pour aide et mises à jour."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Tarification Transparente",
+    "subtitle": "Choisissez le plan parfait pour les besoins de votre entreprise",
+    "mostPopular": "Le Plus Populaire",
+    "plans": {
+      "smart": {
+        "name": "Application Business Intelligente",
+        "period": "forfait unique",
+        "description": "Meilleur choix pour les restaurants, cliniques et boutiques qui veulent grandir plus vite.",
+        "features": [
+          "Site web personnalisé OU application mobile",
+          "Système de réservation / commande en ligne",
+          "Tableau de bord admin pour gérer votre entreprise",
+          "Hébergement GRATUIT pendant 1 an",
+          "Vidéo promotionnelle GRATUITE pour réseaux sociaux 🎁",
+          "Affiches & designs numériques GRATUITS",
+          "Notifications clients & offres",
+          "6 mois de support gratuit",
+          "Communication prioritaire",
+          "Support multi-langues & thème sombre/clair"
+        ],
+        "cta": "Obtenir ce Pack"
+      },
+      "starter": {
+        "name": "Pack Business Débutant",
+        "period": "forfait unique",
+        "description": "Parfait pour les petites entreprises qui veulent une présence en ligne professionnelle rapidement.",
+        "features": [
+          "Site web professionnel pour entreprise",
+          "Design adapté mobile",
+          "Intégration contact & WhatsApp",
+          "Hébergement GRATUIT pendant 1 an",
+          "Design d'affiche ou flyer GRATUIT",
+          "SEO basique pour être trouvé sur Google",
+          "6 mois de support gratuit",
+          "Livré rapidement en 3 jours",
+          "Support multi-langues & thème sombre/clair"
+        ],
+        "cta": "Démarrer Mon Business"
+      },
+      "premium": {
+        "name": "Solution Business Premium",
+        "price": "Sur Mesure",
+        "period": "basé sur projet",
+        "description": "Une solution digitale complète taillée exactement pour votre entreprise.",
+        "features": [
+          "Site web personnalisé + application mobile",
+          "Boutique en ligne / système de réservation",
+          "Panneau de contrôle admin complet",
+          "Hébergement GRATUIT pendant 1 an",
+          "Pack branding & design GRATUIT",
+          "Vidéo promo & visuels marketing GRATUITS",
+          "Rapports & analytics avancés",
+          "1 an de support & mises à jour gratuits",
+          "Support direct & consultation",
+          "Support multi-langues & thème sombre/clair"
+        ],
+        "cta": "Parlez-nous"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Nos Clients",
+    "subtitle": "De confiance pour les entreprises de toutes tailles",
+    "0": {
+      "text": "FZC Digital a refondu notre plateforme e-commerce, entraînant une augmentation de 45% des ventes en ligne en 3 mois. Hautement recommandé !"
+    },
+    "1": {
+      "text": "Leur solution d'application mobile a boosté notre engagement utilisateur de 200% et nous a aidé à retenir plus de clients fidèles. L'équipe était professionnelle et réactive."
+    },
+    "2": {
+      "text": "FZC Digital a fourni une expérience digitale transparente et un support exceptionnel. Nos clients adorent les améliorations et nous aussi !"
+    }
+  },
+  "contact": {
+    "title": "Prêt à Démarrer Votre Projet ?",
+    "description": "Contactez-nous pour une consultation gratuite et un devis de projet. Discutons de comment nous pouvons aider votre entreprise à grandir.",
+    "form": {
+      "title": "Demander un Devis",
+      "name": "Votre Nom",
+      "email": "Adresse Email",
+      "selectService": "Sélectionner un Service",
+      "services": {
+        "web": "Développement Web",
+        "mobile": "Développement d'Application Mobile",
+        "fullstack": "Solution Full-Stack",
+        "custom": "Logiciel Personnalisé"
+      },
+      "details": "Détails du Projet",
+      "submit": "Soumettre la Demande"
+    }
+  },
+  "footer": {
+    "companyName": "FZC Digital",
+    "description": "Transformer les entreprises grâce à des solutions numériques innovantes. Nous construisons l'avenir de votre présence digitale.",
+    "quickLinks": "Liens Rapides",
+    "links": {
+      "home": "Accueil",
+      "services": "Services",
+      "pricing": "Tarifs",
+      "process": "Processus",
+      "contact": "Contact"
+    },
+    "services": "Services",
+    "servicesList": {
+      "web": "Développement Web",
+      "mobile": "Applications Mobiles",
+      "custom": "Logiciel Personnalisé",
+      "consulting": "Consulting Digital",
+      "design": "Design UI/UX",
+      "marketing": "Marketing Digital"
+    },
+    "contact": "Contactez-nous",
+    "location": "Nador, Maroc",
+    "copyright": "FZC Digital. Tous droits réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "cookies": "Politique des Cookies"
+  }
+}

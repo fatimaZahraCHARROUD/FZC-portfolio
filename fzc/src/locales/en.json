@@ -1,0 +1,266 @@
+{
+  "company": {
+    "name": "FZC Digital"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "pricing": "Pricing",
+    "process": "Process",
+    "quote": "Get Quote"
+  },
+  "hero": {
+    "new": "NEW",
+    "tagline": "Digital Solutions Company",
+    "title": "Transform Your Business With ",
+    "titleHighlight": "Digital Excellence",
+    "description": "FZC Digital delivers cutting-edge web and mobile applications that drive growth. We combine innovative technology with strategic insights to create exceptional digital experiences.",
+    "stats": {
+      "delivery": "Fast Delivery",
+      "satisfaction": "Client Satisfaction",
+      "support": "Support Available"
+    },
+    "buttons": {
+      "pricing": "View Pricing",
+      "services": "Service Monitoring"
+    }
+  },
+  "services": {
+    "title": "Our Digital Services",
+    "subtitle": "Comprehensive solutions for your digital transformation",
+    "bookNow": "Book Now",
+    "items": {
+      "0": {
+        "title": "Website for Your Business",
+        "description": "A beautiful website that shows your business online and helps you get more customers.",
+        "features": [
+          "Professional & modern design",
+          "Works on computers and phones",
+          "Easy to update with your info",
+          "Help customers find you online"
+        ]
+      },
+      "1": {
+        "title": "Mobile App for Your Customers",
+        "description": "An app for your business that lets customers order, book easily.",
+        "features": [
+          "Available on iPhone and Android",
+          "Order or book from the app",
+          "Send updates or promotions to customers"
+        ]
+      },
+      "2": {
+        "title": "Online Store / E-commerce",
+        "description": "Sell your products online with a simple and secure online shop.",
+        "features": [
+          "Easy product management",
+          "Secure payments online",
+          "Track orders and deliveries",
+          "Boost sales and reach more customers"
+        ]
+      },
+      "3": {
+        "title": "Business Dashboard & Reports",
+        "description": "See how your business is performing at a glance with clear, interactive charts and detailed reports.",
+        "features": [
+          "Track sales and performance",
+          "See customer activity",
+          "Easy-to-understand charts",
+          "Make better decisions fast"
+        ]
+      },
+      "4": {
+        "title": "Design & Branding",
+        "description": "Create attractive posters, flyers, stickers, and other materials to promote your business.",
+        "features": [
+          "Posters and flyers for promotions or events",
+          "Custom stickers and labels",
+          "Logo and branding design",
+          "Professional visuals for customers"
+        ]
+      },
+      "5": {
+        "title": "Marketing & Customer Interaction",
+        "description": "Help your business reach more customers online and stay connected with them.",
+        "features": [
+          "Social media promotion",
+          "Email or SMS updates to customers",
+          "Loyalty programs and special offers",
+          "Track marketing performance"
+        ]
+      }
+    }
+  },
+  "whyUs": {
+    "title": "Why ",
+    "titleHighlight": "FZC Digital",
+    "imageAlt": "Why FZC Digital",
+    "reasons": {
+      "0": {
+        "title": "We Understand Your Business",
+        "description": "We work with small businesses and professionals, so we know what you really need — simple, effective digital solutions."
+      },
+      "1": {
+        "title": "Clear Communication",
+        "description": "No technical language. We explain everything clearly and keep you informed at every step."
+      },
+      "2": {
+        "title": "Affordable & Honest Pricing",
+        "description": "Transparent prices with no surprises. You get exactly what your business needs — nothing more, nothing less."
+      },
+      "3": {
+        "title": "Support After Delivery",
+        "description": "We don't disappear after launch. We stay with you to help, update, and support your project."
+      }
+    }
+  },
+  "process": {
+    "title": "Our Development Process",
+    "subtitle": "A structured approach to ensure project success",
+    "steps": {
+      "0": {
+        "title": "Listen",
+        "description": "We talk with you to understand your business and what you really need."
+      },
+      "1": {
+        "title": "Plan",
+        "description": "We suggest the best solution and agree on features, price, and timeline."
+      },
+      "2": {
+        "title": "Design",
+        "description": "We create a clear and attractive design and get your approval first."
+      },
+      "3": {
+        "title": "Build",
+        "description": "We develop your project step by step and keep you updated."
+      },
+      "4": {
+        "title": "Test",
+        "description": "We test everything to make sure it works perfectly."
+      },
+      "5": {
+        "title": "Launch & Support",
+        "description": "We launch your project and stay available for help and updates."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Transparent Pricing",
+    "subtitle": "Choose the perfect plan for your business needs",
+    "mostPopular": "Most Popular",
+    "plans": {
+      "smart": {
+        "name": "Smart Business App",
+        "period": "one-time",
+        "description": "Best choice for restaurants, clinics, and shops that want to grow faster.",
+        "features": [
+          "Custom website OR mobile app",
+          "Online booking / ordering system",
+          "Admin dashboard to manage your business",
+          "FREE hosting for 1 year",
+          "FREE promotional video for social media 🎁",
+          "FREE posters & digital designs",
+          "Customer notifications & offers",
+          "6 months free support",
+          "Priority communication",
+          "Multi-language support & Dark/Light theme"
+        ],
+        "cta": "Get This Package"
+      },
+      "starter": {
+        "name": "Starter Business Pack",
+        "period": "one-time",
+        "description": "Perfect for small businesses that want a professional online presence fast.",
+        "features": [
+          "Professional business website",
+          "Mobile-friendly design",
+          "Contact & WhatsApp integration",
+          "FREE hosting for 1 year",
+          "FREE business poster or flyer design",
+          "Basic SEO to be found on Google",
+          "6 month free support",
+          "Delivered quickly in 3 days",
+          "Multi-language support & Dark/Light theme"
+        ],
+        "cta": "Start My Business"
+      },
+      "premium": {
+        "name": "Premium Business Solution",
+        "price": "Custom",
+        "period": "project-based",
+        "description": "A complete digital solution tailored exactly to your business.",
+        "features": [
+          "Custom website + mobile app",
+          "Online store / booking system",
+          "Full admin control panel",
+          "FREE hosting for 1 year",
+          "FREE branding & design pack",
+          "FREE promo video & marketing visuals",
+          "Advanced reports & analytics",
+          "1 year free support & updates",
+          "Direct support & consultation",
+          "Multi-language support & Dark/Light theme"
+        ],
+        "cta": "Talk to Us"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Our Clients",
+    "subtitle": "Trusted by businesses of all sizes",
+    "0": {
+      "text": "FZC Digital revamped our e-commerce platform, resulting in a 45% increase in online sales within 3 months. Highly recommended!"
+    },
+    "1": {
+      "text": "Their mobile app solution boosted our user engagement by 200% and helped us retain more loyal customers. The team was professional and responsive."
+    },
+    "2": {
+      "text": "FZC Digital delivered a seamless digital experience and provided outstanding support. Our customers love the improvements and so do we!"
+    }
+  },
+  "contact": {
+    "title": "Ready to Start Your Project?",
+    "description": "Contact us for a free consultation and project estimate. Let's discuss how we can help your business grow.",
+    "form": {
+      "title": "Request a Quote",
+      "name": "Your Name",
+      "email": "Email Address",
+      "selectService": "Select Service",
+      "services": {
+        "web": "Web Development",
+        "mobile": "Mobile App Development",
+        "fullstack": "Full-Stack Solution",
+        "custom": "Custom Software"
+      },
+      "details": "Project Details",
+      "submit": "Submit Request"
+    }
+  },
+  "footer": {
+    "companyName": "FZC Digital",
+    "description": "Transforming businesses through innovative digital solutions. We build the future of your digital presence.",
+    "quickLinks": "Quick Links",
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "pricing": "Pricing",
+      "process": "Process",
+      "contact": "Contact"
+    },
+    "services": "Services",
+    "servicesList": {
+      "web": "Web Development",
+      "mobile": "Mobile Apps",
+      "custom": "Custom Software",
+      "consulting": "Digital Consulting",
+      "design": "UI/UX Design",
+      "marketing": "Digital Marketing"
+    },
+    "contact": "Get In Touch",
+    "location": "Nador, Morocco",
+    "copyright": "FZC Digital. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
+  }
+}
