@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Navbar, Nav, Col, Row, Card, Button, Modal, Tab, Tabs, Badge, Dropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { FaSun, FaMoon, FaGlobe } from "react-icons/fa";
- 
+ import { FiZap, FiStar, FiShield, FiThumbsUp,FiMic, FiCheckSquare, FiEdit3, FiHome, FiTool, FiHeadphones ,FiTruck, FiSmile, FiBriefcase, FiFileText, FiDollarSign } from 'react-icons/fi';
+ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
 import { 
   FaBullhorn, FaCheckCircle, FaArrowRight, FaLinkedin, FaGithub, 
   FaEnvelope, FaWhatsapp, FaPlay, FaCode, FaMobileAlt, FaServer, 
@@ -36,6 +38,20 @@ const App = () => {
   const [lightMode, setLightMode] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
 
+   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const autoPlayRef = useRef(null);
+// Map your steps to icons
+const stepIcons = [
+  FiMic,        // ear
+  FiCheckSquare, // todo list
+  FiEdit3,      // brush paint
+  FiHome,       // building
+  FiTool,       // test & maintenance
+  FiHeadphones  // support
+];
   // Language change handler
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -108,6 +124,8 @@ const App = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  
 
   const handleDemoClick = (demo) => {
     setSelectedDemo(demo);
@@ -296,7 +314,65 @@ const App = () => {
     }
     return stars;
   };
+// Minimum swipe distance
+  const minSwipeDistance = 50;
 
+  const goToPrevious = () => {
+    setIsAutoPlaying(false);
+    const isFirstSlide = currentServiceIndex === 0;
+    const newIndex = isFirstSlide ? services.length - 1 : currentServiceIndex - 1;
+    setCurrentServiceIndex(newIndex);
+  };
+
+  const goToNext = () => {
+    setIsAutoPlaying(false);
+    const isLastSlide = currentServiceIndex === services.length - 1;
+    const newIndex = isLastSlide ? 0 : currentServiceIndex + 1;
+    setCurrentServiceIndex(newIndex);
+  };
+
+  const goToSlide = (slideIndex) => {
+    setIsAutoPlaying(false);
+    setCurrentServiceIndex(slideIndex);
+  };
+
+  // Auto play functionality
+  useEffect(() => {
+    if (isAutoPlaying) {
+      autoPlayRef.current = setTimeout(() => {
+        const isLastSlide = currentServiceIndex === services.length - 1;
+        const newIndex = isLastSlide ? 0 : currentServiceIndex + 1;
+        setCurrentServiceIndex(newIndex);
+      }, 5000); // Change slide every 5 seconds
+    }
+
+    return () => {
+      if (autoPlayRef.current) {
+        clearTimeout(autoPlayRef.current);
+      }
+    };
+  }, [currentServiceIndex, isAutoPlaying, services.length]);
+
+  // Touch events for mobile swipe
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) goToNext();
+    if (isRightSwipe) goToPrevious();
+    
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
   return (
     <div>
       <Navbar expand="lg" fixed="top" className={`custom-navbar ${isScrolled ? "navbar-scrolled" : "navbar-transparent"}`}>
@@ -350,7 +426,7 @@ const App = () => {
         </Container>
       </Navbar>
 
-      <section id="home" className="hero-section">
+      <section id="home" className="hero-section ">
         <div className="hero-background">
           <div className="hero-overlay"></div>
         </div>
@@ -394,21 +470,197 @@ const App = () => {
         </Container>
       </section>
 
-      <section id="services" className="section-py">
+        <br/>        <br/>        <br/>
+
+    <section className="why-fzc-section py-5 m-4">
+       <div className="container">
+    <div className="title-why-us">
+      <h2 className="mb-4 text-white" style={{ fontWeight: "bold" }}>
+        {t('whyUs.title')} <span className="text-primary">{t('whyUs.titleHighlight')}</span>
+      </h2>
+    </div>
+    <div className="why-content d-flex flex-wrap align-items-start">
+      
+      <div className="why-cards d-flex flex-wrap gap-4">
+        {[
+          { icon: <FiTruck />, title: "Fast Delivery", desc: "We ensure your products reach you quickly and safely." },
+          { icon: <FiSmile />, title: "Client Satisfaction", desc: "Your happiness is our top priority in every service." },
+          { icon: <FiHeadphones />, title: "Support", desc: "24/7 dedicated support for all your questions and needs." },
+          { icon: <FiBriefcase />, title: "Understand Business", desc: "We tailor our solutions to your specific business requirements." },
+          { icon: <FiFileText />, title: "Clear CMC", desc: "Transparent and clear communication for all contracts and documents." },
+          { icon: <FiDollarSign />, title: "Pricing", desc: "Competitive pricing with no hidden costs." },
+        ].map((item, index) => (
+          <div className="service-card text-center p-3 shadow-sm rounded" key={index} style={{ flex: "1 1 200px", minWidth: "180px", backgroundColor: "var(--card-bg)" }}>
+            <div className="why-icon mb-3" style={{ fontSize: '2.5rem', color: '#0D6EFD' }}>
+              {item.icon}
+            </div>
+            <h5>{item.title}</h5>
+            <p className="mb-0 why-desc">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+       </div>
+</section>
+
+
+ <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>
+<section id="process" className={`section-py relative `}>
+  <Container>
+    <div className="text-center mb-5 pt-4">
+      <h2 className="section-title display-4 fw-bold mb-3">{t('process.title')}</h2>
+      <p className="section-subtitle lead text-muted mx-auto" style={{maxWidth: '700px'}}>
+        {t('process.subtitle')}
+      </p>
+    </div>
+    
+   
+    
+    <Row className="process-steps g-4 justify-content-center">
+      {processSteps.map((step, index) => {
+        const Icon = stepIcons[index % stepIcons.length];
+         
+        return (
+          <Col md={6} lg={3} xl={2} className="mb-4 mb-lg-0" key={step.step}>
+            
+            <Card className={`process-step h-100 text-center shadow-sm border-0 transition-all ${lightMode ? 'bg-white' : 'bg-dark-gray'}`}
+                  style={{ 
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-8px)';
+                    e.currentTarget.style.boxShadow = lightMode 
+                      ? '0 10px 30px rgba(0,0,0,0.1)' 
+                      : '0 10px 30px rgba(0,0,0,0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.05)';
+                  }}>
+              
+              <Card.Body className="d-flex flex-column p-4 p-lg-3">
+                {/* Icon with gradient background */}
+                <div className={`step-icon-wrapper mx-auto mb-4 rounded-circle d-flex align-items-center justify-content-center ${lightMode ? 'bg-light-primary' : 'bg-dark-primary'}`}
+                     style={{
+                       width: '80px',
+                       height: '80px',
+                       background: lightMode 
+                         ? 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' 
+                         : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)'
+                     }}>
+                  <Icon className="display-6 text-primary" style={{ fontSize: '2.5rem' }} />
+                </div>
+                
+                
+                
+                <Card.Title className="step-title fw-bold mb-3 fs-5" style={{minHeight: '3rem'}}>
+                  {t(step.title)}
+                </Card.Title>
+                
+                <Card.Text className={`step-description flex-grow-1 ${lightMode ? 'text-muted' : 'text-light'}`}
+                           style={{fontSize: '0.9rem', lineHeight: '1.5'}}>
+                  {t(step.description)}
+                </Card.Text>
+                
+               
+              </Card.Body>
+            </Card>
+          </Col>
+        );
+      })}
+    </Row>
+    
+     
+  </Container>
+  
+ 
+</section>
+
+ <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>
+
+     {/* Services Slider Section */}
+      <section id="services" className="section-py position-relative">
         <Container>
           <div className="text-center mb-5 pt-4">
-            <h2 className="section-title">{t('services.title')}</h2>
-            <p className="section-subtitle">{t('services.subtitle')}</p>
+            <h2 className="section-title display-4 fw-bold mb-3">{t('services.title')}</h2>
+            <p className="section-subtitle lead text-muted mx-auto" style={{ maxWidth: '700px' }}>
+              {t('services.subtitle')}
+            </p>
           </div>
-          <Row>
-            {services.map((service, index) => (
-              <Col lg={6} md={12} sm={12} className="mb-4" key={index}>
-                <div className="service-cards d-flex bg-dark h-70">
+
+          {/* Slider container */}
+          <div className="position-relative"
+               onTouchStart={onTouchStart}
+               onTouchMove={onTouchMove}
+               onTouchEnd={onTouchEnd}>
+            
+            {/* Navigation arrows */}
+            <button
+              className="slider-arrow slider-arrow-left position-absolute start-0 top-50 translate-middle-y d-none d-md-flex align-items-center justify-content-center border-0 rounded-circle"
+              onClick={goToPrevious}
+              aria-label="Previous service"
+              style={{
+                width: '50px',
+                height: '50px',
+                backgroundColor: lightMode ? 'white' : '#2d3748',
+                color: lightMode ? '#333' : 'white',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                zIndex: 10,
+                left: '-25px'
+              }}
+            >
+              <FaChevronLeft size={20} />
+            </button>
+
+            <button
+              className="slider-arrow slider-arrow-right position-absolute end-0 top-50 translate-middle-y d-none d-md-flex align-items-center justify-content-center border-0 rounded-circle"
+              onClick={goToNext}
+              aria-label="Next service"
+              style={{
+                width: '50px',
+                height: '50px',
+                backgroundColor: lightMode ? 'white' : '#2d3748',
+                color: lightMode ? '#333' : 'white',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                zIndex: 10,
+                right: '-25px'
+              }}
+            >
+              <FaChevronRight size={20} />
+            </button>
+
+            {/* Slider track */}
+            <div className="overflow-hidden">
+              <div
+                className="d-flex transition-transform"
+                style={{
+                  transform: `translateX(-${currentServiceIndex * 70}%)`
+,
+                  transition: 'transform 0.5s ease-in-out',
+                }}
+              >
+                {services.map((service, index) => (
+                  <div 
+                    key={index}
+                    className="flex-shrink-0 service-cont "
+                      style={{ width: '70%' }}
+
+                  >
+                    <div
+                      className={`service-c service-card rounded-4 overflow-hidden shadow-lg `}
+                      style={{
+                        height: 'auto',
+                        maxWidth: '80%',
+                        margin: '0 auto',
+                      }}
+                    >
+                     <div style={{ borderRadius:"15px"}} className="service-cards d-flex h-70 ">
                   <div className="service-img-wrapper">
                     <img src={service.img} alt={t(service.title)} />
                   </div>
-                  <div className="service-content d-flex flex-column p-3">
-                    <h3 className="text-white">{t(service.title)}</h3>
+                  <div className={`service-content d-flex flex-column p-3 ${lightMode? "bg-white":""}`} >
+                    <h2 className="text-white">{t(service.title)}</h2>
                     <p className="service-desc text-white flex-grow-1">{t(service.description)}</p>
                     <ul className="service-features text-white">
                       {service.features.map((feature, idx) => (
@@ -423,56 +675,68 @@ const App = () => {
                     </button>
                   </div>
                 </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </section>
 
-      <section className="why-fzc-section py-5 m-4">
-        <div className="container">
-          <div className="title-why-us">
-            <h2 className="mb-4 text-white" style={{ fontWeight: "bold" }}>
-              {t('whyUs.title')} <span className="text-primary">{t('whyUs.titleHighlight')}</span>
-            </h2>
-          </div>
-          <div className="why-content">
-            <div className="why-img-col">
-              <img src={whyusimg} alt={t('whyUs.imageAlt')} className="img-fluid floating-img" />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="why-cards">
-              {[0, 1, 2, 3].map((index) => (
-                <div className="service-card" key={index}>
-                  <h5>{t(`whyUs.reasons.${index}.title`)}</h5>
-                  <p className="mb-0 why-desc">{t(`whyUs.reasons.${index}.description`)}</p>
-                </div>
+          </div>
+
+          {/* Dots indicator */}
+          <div className="d-flex justify-content-center align-items-center mt-5">
+            <div className="d-flex gap-2">
+              {services.map((_, slideIndex) => (
+                <button
+                  key={slideIndex}
+                  className={`dot-indicator border-0 rounded-circle ${
+                    slideIndex === currentServiceIndex ? 'active' : ''
+                  }`}
+                  onClick={() => goToSlide(slideIndex)}
+                  aria-label={`Go to slide ${slideIndex + 1}`}
+                  style={{
+                    width: slideIndex === currentServiceIndex ? '30px' : '12px',
+                    height: '12px',
+                    backgroundColor:
+                      slideIndex === currentServiceIndex
+                        ? '#0d6efd'
+                        : lightMode
+                        ? '#dee2e6'
+                        : '#495057',
+                    transition: 'all 0.3s ease',
+                  }}
+                />
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      <section id="process" className="section-py m-4">
-        <Container>
-          <div className="text-center mb-5 pt-4">
-            <h2 className="section-title">{t('process.title')}</h2>
-            <p className="section-subtitle">{t('process.subtitle')}</p>
+          {/* Mobile navigation buttons */}
+          <div className="d-flex d-md-none justify-content-center align-items-center gap-3 mt-4">
+            <button
+              className="btn btn-outline-primary d-flex align-items-center justify-content-center rounded-circle"
+              onClick={goToPrevious}
+              style={{ width: '50px', height: '50px' }}
+            >
+              <FaChevronLeft />
+            </button>
+            <span className="text-muted">
+              {currentServiceIndex + 1} / {services.length}
+            </span>
+            <button
+              className="btn btn-outline-primary d-flex align-items-center justify-content-center rounded-circle"
+              onClick={goToNext}
+              style={{ width: '50px', height: '50px' }}
+            >
+              <FaChevronRight />
+            </button>
           </div>
-          <Row className="process-steps">
-            {processSteps.map((step) => (
-              <Col md={4} lg={2} className="mb-4" key={step.step}>
-                <div className="process-step">
-                  <div className="step-number">{step.step}</div>
-                  <h5 className="step-title">{t(step.title)}</h5>
-                  <p className="step-description">{t(step.description)}</p>
-                </div>
-              </Col>
-            ))}
-          </Row>
         </Container>
       </section>
+ <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>
 
       <section id="pricing" className="section-py m-4">
+              
+
         <Container>
           <div className="text-center mb-5 pt-4">
             <h2 className="section-title">{t('pricing.title')}</h2>
@@ -518,8 +782,11 @@ const App = () => {
           </Row>
         </Container>
       </section>
+ <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>
 
-      <section id="clients" className="section-py m-4">
+      <section  id="clients" className={`section-py ${
+    lightMode ? "bg-light" : ""}`}>
+       
         <Container>
           <div className="text-center mb-5 pt-4">
             <h2 className="section-title">{t('testimonials.title')}</h2>
@@ -539,8 +806,10 @@ const App = () => {
           </Row>
         </Container>
       </section>
+ <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>        <br/>
 
       <section id="contact" className="section-py m-4">
+   
         <Container>
           <Row>
             <Col lg={6} className="mb-4 mb-lg-0 pt-4">

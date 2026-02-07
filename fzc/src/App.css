@@ -150,11 +150,14 @@ body {
 
 /* Process steps */
 .process-step {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* ✅ correct */
   background-color: var(--card-bg) !important;
   color: var(--text-color) !important;
 }
 
 .light-theme .process-step {
+    box-shadow:#000;
+
   background-color: #f8f9fa !important;
   color: #111111 !important;
 }
@@ -727,7 +730,7 @@ background: linear-gradient(
 }
 
 .service-desc{
-  font-size:12px;
+  font-size:18px;
 }
 
 .service-feautures{
@@ -787,7 +790,7 @@ background: linear-gradient(
 }
 
 .service-btn{
-  font-size: 14px;
+  font-size: 18px;
   padding: 5px 30px;
 }
 /* Modal */
@@ -2574,12 +2577,16 @@ img {
 }
 
 
-@media (max-width: 470px) {
+@media (max-width: 767px) {
 
   /* Make card vertical */
   .service-cards {
     flex-direction: column;
   }
+  .service-cont{
+    height:auto;
+  }
+  
 
   /* Image wrapper takes full width */
   .service-img-wrapper {
@@ -2720,7 +2727,7 @@ img {
 }
 
 .light-theme .process-step {
-  background-color: #f8f9fa !important;
+  background-color: white !important;
   color: #111111 !important;
 }
 
@@ -2780,7 +2787,7 @@ img {
 }
 
 .light-theme .client-card {
-  background: #f8f9fa !important;
+  background: white !important;
   color: #111111 !important;
 }
 
@@ -2859,3 +2866,69 @@ img {
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
+
+
+
+
+
+
+
+
+/* Fix globe icon in light theme */
+.light-theme #language-dropdown {
+  color: var(--text-color) !important;
+}
+
+.light-theme #language-dropdown:hover {
+  color: var(--primary-color) !important;
+}
+
+@media (max-width: 991px) {
+  .light-theme .navbar-collapse {
+  background-color: var(--card-bg) !important;
+}
+  .navbar-collapse {
+     padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  
+  .light-theme .navbar-collapse {
+     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  
+  .nav-contact-btn {
+    margin-left: 0;
+    margin-top: 10px;
+    display: inline-block;
+  }
+}
+
+
+
+
+
+ 
+
+/* Toggle button for light theme */
+.light-theme .navbar-toggler {
+  border-color: var(--text-color) !important;
+}
+
+.light-theme .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23111111' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Navbar collapse background for mobile */
+
+
+ 
+
+/* Fix dropdown for light theme */
+.light-theme .language-dropdown {
+  background-color: var(--card-bg-light) !important;
+  color: var(--text-color) !important;
+}
+ 
+ 
